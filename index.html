@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ross Agginie</title>
+</head>
+<body>
+    <h1>Ross Agginie</h1>
+    <div id="count"></div>
+</body>
+<script>
+    var count = document.getElementById('count')
+    var data = {
+        "name": "Ross Agginie",
+    }
+    fetch('https://02rbu63hsj.execute-api.us-east-1.amazonaws.com/dev/visitors', {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then(response => {
+        return response.json()
+    })
+    .then(data => {
+        console.log(data)
+    })
+</script>
+</html>

@@ -1,0 +1,34 @@
+{
+    "Version": "2012-10-17",
+    "Id": "default",
+    "Statement": [
+      {
+        "Sid": "function-test-mydynamo-writer-1",
+        "Effect": "Allow",
+        "Principal": {
+          "Service": "apigateway.amazonaws.com"
+        },
+        "Action": "lambda:InvokeFunction",
+        "Resource": "arn:aws:lambda:us-east-1:442359104502:function:test-mydynamo-writer",
+        "Condition": {
+          "ArnLike": {
+            "AWS:SourceArn": "arn:aws:execute-api:us-east-1:442359104502:02rbu63hsj/*/POST/visitors"
+          }
+        }
+      },
+      {
+        "Sid": "function-test-mydynamo-writer-2",
+        "Effect": "Allow",
+        "Principal": {
+          "Service": "apigateway.amazonaws.com"
+        },
+        "Action": "lambda:InvokeFunction",
+        "Resource": "arn:aws:lambda:us-east-1:442359104502:function:test-mydynamo-writer",
+        "Condition": {
+          "ArnLike": {
+            "AWS:SourceArn": "arn:aws:execute-api:us-east-1:442359104502:02rbu63hsj/*/*/*"
+          }
+        }
+      }
+    ]
+  }
